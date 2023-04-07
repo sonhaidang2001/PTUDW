@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-// const contactRouter = require('./app/routes/contac.route')
+const contactRouter = require('./app/routers/contact.route')
 // const ApiError = require('./app/api-error');
 // const db = require('./database/db');
 
@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 // call api
-// app.use('/api/contacts',contactRouter)
+app.use('/api/contacts',contactRouter)
 
 // error 
 // app.use((req, res, next) => {   
