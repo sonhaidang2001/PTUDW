@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const config = require('./app/config');
+
 const contactRouter = require('./app/routers/contact.route')
 const ApiError = require('./app/api-error');
 // const db = require('./database/db');
@@ -8,8 +10,8 @@ const ApiError = require('./app/api-error');
 // db 
 // db.connect();
 // port
-require('dotenv').config();
-const port = process.env.PORT;
+// require('dotenv').config();
+// const port = process.env.PORT;
 
 app.use(cors());
 app.use(express.json());
@@ -32,6 +34,7 @@ app.use('/',(req,res)=>{
     res.send('helo');
 })
 
-app.listen(port, () =>
-    console.log(`App listening at http://localhost:${port}`),
+const PORT = config.app.port
+app.listen(PORT, () =>
+    console.log(`App listening at http://localhost:${PORT}`),
 );
